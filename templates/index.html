@@ -2,38 +2,61 @@
 <html>
 
 <head>
-    <title>NGO Donation</title>
+
+<title>NGO Donation</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
 
-<h2>NGO Donation</h2>
+<div class="container">
+
+<img src="/static/logo.png" class="logo">
+
+<h2>Support Our Mission ❤️</h2>
+
+<p>Your contribution makes a difference.</p>
+
+{% if error %}
+<p style="color:red; text-align:center;">
+    {{ error }}
+</p>
+{% endif %}
 
 <form action="/payment" method="post">
 
-    <label>Name</label><br>
+<label>Name</label>
 
-    <input
-        type="text"
-        name="name"
-        required>
+<input
+type="text"
+name="name"
+placeholder="Enter your name"
+required>
 
-    <br><br>
+<label>Phone Number</label>
 
-    <label>Phone</label><br>
+<input
+    type="tel"
+    name="phone"
+    placeholder="Enter 10-digit mobile number"
+    maxlength="10"
+    pattern="[0-9]{10}"
+    oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+    required>
 
-    <input
-        type="text"
-        name="phone"
-        required>
+<button type="submit">
 
-    <br><br>
+Continue
 
-    <button type="submit">
-        Next
-    </button>
+</button>
 
 </form>
+
+</div>
 
 </body>
 

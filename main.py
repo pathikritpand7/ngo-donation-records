@@ -29,13 +29,25 @@ async def payment(
     phone: str = Form(...)
 ):
 
+    phone = phone.strip()
+
+    if not phone.isdigit() or len(phone) != 10:
+        return templates.TemplateResponse(
+            request=request,
+            name="index.html",
+            context={
+                "error": "Please enter a valid 10-digit mobile number."
+            },
+            status_code=400
+        )
+
     user_data["name"] = name
     user_data["phone"] = phone
 
     return templates.TemplateResponse(
-            request=request,
-            name="payment.html"
-        )
+        request=request,
+        name="payment.html"
+    )
 
 
 @app.get("/amount", response_class=HTMLResponse)

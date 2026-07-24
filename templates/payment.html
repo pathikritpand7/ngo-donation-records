@@ -2,20 +2,26 @@
 <html>
 
 <head>
-    <title>Payment</title>
+
+<title>Payment</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
 
-<h2>Scan QR Code</h2>
+<div class="container">
 
-<img
-src="/static/qr.jpeg"
-width="300">
+<h2>Scan & Pay</h2>
 
-<br><br>
+<p>Use any UPI App</p>
 
-<a href="/amount">
+<img src="/static/qr.jpeg" class="qr">
+
+<form action="/amount" method="get">
 
 <button>
 
@@ -23,7 +29,9 @@ I Have Paid
 
 </button>
 
-</a>
+</form>
+
+</div>
 
 </body>
 
